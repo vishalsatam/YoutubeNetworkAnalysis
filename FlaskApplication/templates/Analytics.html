@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Youtube Social Network</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="static/css/network.css" rel="stylesheet"/>
+  </head>
+
+    
+
+<body>
+    
+    
+<div id="mainWrapper">
+        <!--Header-->
+        <div id="headerDiv">
+            
+            <div class="row">
+                <div class="col-lg-2"></div>
+                
+                <div class="col-lg-8">Youtube Social Network</div>
+                
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+    
+        <div id="bodyWrapperDivAccount">
+            <div class="row">
+                <div id="sidebar" class="col-lg-2">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li role="presentation" ><a href="/home">Home</a></li>
+                        <li role="presentation"><a href="/MyAccount">My Account</a></li>
+                        <li role="presentation" class="active"><a href="Analytics">Analytics</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-8 analyticsbody">
+                        <div class="row ">
+                            <h3>Views Estimator</h3>
+                            <div class="col-lg-6">
+                                <label for="frm_category">Select a Category</label>
+                                <select id="frm_category" name="frm_category" id="frm_category" class="form-control">
+                                    <option value="Entertainment">Entertainment</option>
+                                    <option value="Music">Music</option>
+                                    <option value="Comedy">Comedy</option>
+                                    <option value="People & Blogs">People &amp; Blogs</option>
+                                    <option value="Sports">Sports</option>
+                                    <option value="Film & Animation">Film &amp; Animation</option>
+                                    <option value="News & Politics">News &amp; Politics</option>
+                                    <option value="Pets & Animals">Pets &amp; Animals</option>
+                                    <option value="Autos & Vehicles">Autos &amp; Vehicles</option>
+                                    <option value="Gadgets & Games">Gadgets &amp; Games</option>
+                                    <option value="Howto & DIY">Howto &amp; DIY</option>
+                                    <option value="Travel & Places">Travel &amp; Places</option>
+                                    <option value="UNA">UNA</option>
+                                    <option value="Science & Technology">Science &amp; Technology</option>
+                                    <option value="Nonprofits & Activism">Nonprofits &amp; Activism</option>
+                                    <option value="Howto & Style">Howto &amp; Style</option>
+                                    <option value="Education">Education</option>
+                                    <option value="Travel & Events">Travel &amp; Events</option>
+                                    <option value="Gaming">Gaming</option>
+
+                                </select>
+                                <label for="frm_ratings">Total Ratings</label>
+                                <input type="text" name="frm_ratings" id="frm_ratings" class="form-control" maxlength="6"/>
+                                <label for="frm_comments">Comments</label>
+                                <input type="text" name="frm_comments" id="frm_comments" class="form-control" maxlength="6"/>
+                                <label for="frm_ratings">Page Rank for Video</label>
+                                <input type="text" name="frm_page_rank" id="frm_page_rank" class="form-control"maxlength="3"/>
+                            </div>
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-4">
+                                <input type='button' id="frm_estimate" value= "Estimate Views" class="form-control btn btn-success">
+                                <div id="estimationResult">
+                                    
+                                </div>
+                                <div>
+                                    <h2>Clustering</h2>
+                                    Based on our K-means Clustering Algorithm, you have been identified as <b>{{cluster}}</b> user  
+                                </div>
+                                <div>
+                                    <a href=/graphDemo>Learn More</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-1"></div>
+                        </div>
+                    
+                        
+                    
+                </div>
+                
+                
+
+                <div class="col-lg-2 rightheaderusername">
+                    <div class="logoutuname">Username</div>
+                    <div class="logoutuname">{{session['username']}}</div>
+                    <div class="logoutuname"><a href="logout"><input id="logoutbutton" type="button" class="btn btn-danger" value="Logout"/></a></div>
+                </div>
+            </div>
+        </div>
+    
+                
+            
+</div>
+    
+    
+<script type="text/javascript">
+    
+    
+    function validateEstimation(){
+            var frm_comments = $('#frm_comments').val();
+            var frm_ratings = $('#frm_ratings').val();
+            var frm_page_rank = $('#frm_page_rank').val();
+
+            floatregex="^[+]?([0-9]+(?:[\\.][0-9]*)?|\\.[0-9]+)$";
+           intregex="^\\d*[1-9]\\d*$";
+            if(frm_page_rank.match(floatregex)&&frm_comments.match(intregex)&&frm_ratings.match(intregex)){
+                return true;
+            }
+            alert("All Fields Must be entered and must be positive numeric.\nOnly Page Rank can be a decimal");
+            $('#estimationResult').html("");
+            return false;
+        }
+        function validateAndReturn(algoType){
+            JSON.stringify({name: name })
+            var frm_ratings = $('#frm_ratings').val();
+            var frm_comments = $('#frm_comments').val();
+            var frm_page_rank = $('#frm_page_rank').val();
+            var frm_category = $('#frm_category').val();
+
+            if (validateEstimation()==true){
+                return JSON.stringify({frm_comments: frm_comments,frm_ratings:frm_ratings, frm_page_rank:frm_page_rank,frm_category:frm_category});
+            }
+            else return null;
+            
+        }
+    
+        $("#frm_estimate").click(function(e){
+            //alert($("#frm_credit_score").val());
+            var jsonstring=validateAndReturn("pred_nn");
+            if(jsonstring!=null){
+                $.ajax({
+				  method: "POST",
+				  url: "/GetEstimation",
+				  contentType: "application/json",
+				  data: jsonstring
+				})
+                .done(function(data) {
+                    var json_obj = JSON.parse(data);
+                    $('#estimationResult').html(json_obj["estimated_views"]+" Views");
+                });
+            }
+            else{
+                $('#estimationResult').html("");
+                $('#estimationResult').html("Request could not be completed")
+            }
+            
+        });
+        
+    
+    </script>
+    
+    </body>
+</html>

@@ -1,0 +1,5 @@
+---
+applications:
+ - name: FinalProject
+   random-route: true
+   memory: 256M

@@ -1,0 +1,125 @@
+circle.node {
+  cursor: pointer;
+  stroke: #000;
+  stroke-width: .5px;
+}
+
+line.link {
+  fill: none;
+  stroke: #9ecae1;
+  stroke-width: 1.5px;
+}
+
+
+
+#headerDiv{
+    background-color: #CC181E;
+    font-size: 32pt;
+    color: white;
+    height:10%;
+    text-align: center;
+    overflow: hidden; 
+}
+
+#bodyWrapperDiv{
+    height:90%;
+}
+
+#mainWrapper{
+    height:100vh;
+}
+#ovrflowbodydiv{
+    overflow:auto;
+}
+
+.nav>li>a{
+    color:black;
+}
+
+.nav>li>a.active,
+.nav>li>a:hover,
+.nav>li>a:focus {
+   background-color: #F1F1F1;
+    color:black;
+}
+
+.nav>li.active>a{
+    background-color: #444444;
+    color:white;
+}
+.nav>li.active>a:hover{
+    background-color: #444444;
+    color:white;
+}
+
+
+.vidThumb{
+    padding: 0.5    %;
+    
+    
+}
+
+.subThumb{
+    padding: 0.1%;
+    background-color:#F1F1F1;
+}
+
+.thumbImages{
+    width: 100%;
+    height:100px;
+}
+
+.loginform{
+    background-color:white;
+    padding: 0% 20%;
+}
+.sublogin{
+    margin-top:5%;
+    background-color:#F1F1F1;
+    padding: 10% 30%;
+}
+.form-control{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.rightheaderusername{
+
+    text-align: center;
+    color:black;
+}
+
+#logout{
+    color:black;
+
+}
+
+
+.class{
+    background-color: #F1F1F1;
+    
+}
+
+#chart {
+    background-color: #F1F1F1;
+    
+}
+
+.analyticsbody{
+    padding-top:1%;
+    background-color: #F1F1F1;
+    padding-bottom: 2%;
+}
+.analyticsbody h3{
+    margin-left: 15px;
+}
+
+
+#estimationResult{
+    padding:10%;
+    font-size: 15pt;
+    text-align: center;
+}
+
+.logoutuname{
+    padding:5% 0;
+}

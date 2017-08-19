@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Youtube Social Network</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="static/css/network.css" rel="stylesheet"/>
+  </head>
+
+    
+
+<body>
+    
+    
+<div id="mainWrapper">
+        <!--Header-->
+        <div id="headerDiv">
+            
+            <div class="row">
+                <div class="col-lg-2"></div>
+                
+                <div class="col-lg-8">Youtube Social Network</div>
+                
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+    
+        <div id="bodyWrapperDivAccount">
+            <div class="row">
+                <div id="sidebar" class="col-lg-2">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li role="presentation"><a href="/home">Home</a></li>
+                        <li role="presentation" class="active"><a href="/MyAccount">My Account</a></li>
+                        <li role="presentation"><a href="Analytics">Analytics</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-8">
+                    <h3>Video Statistics</h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                            <th>Total Videos</th>
+                            <th>Total Views</th>
+                            <th>Most Popular</th>
+                            <th>Least Popular</th>
+                            <th>Total Minutes Uploaded</th>
+                            <th>Average Rating</th>
+                            <th>Total Incoming Links</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{user['totVid']}}</td>
+                                <td>{{user['totViews']}}</td>
+                                <td>{{user['mostPopular']}}</td>
+                                <td>{{user['leastPopular']}}</td>
+                                <td>{{user['totMinutes']}}</td>
+                                <td>{{user['avgRating']}}</td>
+                                <td>{{user['totInDeg']}}</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                    <h3>Account Statistics</h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <th>Account since (days ago)</th>
+                            <th>Most Recent Upload (days ago)</th>
+                            <th>Popularity Score</th>
+                            <th>Friends</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{user['accountSince']}}</td>
+                                <td>{{user['mostRecent']}}</td>
+                                <td>{{user['popScore']}}</td>
+                                <td>{{user['friends']}}</td>
+
+                            </tr>
+                        </tbody>
+
+                    </table>
+                    
+                    
+                </div>
+                
+                
+
+                <div class="col-lg-2 rightheaderusername">
+                    <div class="logoutuname">Username</div>
+                    <div class="logoutuname">{{session['username']}}</div>
+                    <div class="logoutuname"><a href="logout"><input id="logoutbutton" type="button" class="btn btn-danger" value="Logout"/></a></div>
+                </div>
+            </div>
+        </div>
+    
+                
+            
+</div>
+    
+    
+<script type="text/javascript">
+    </script>
+    
+    </body>
+</html>

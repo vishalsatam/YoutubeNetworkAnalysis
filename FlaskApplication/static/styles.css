@@ -1,0 +1,69 @@
+.helloInput {
+  width: 200px;
+}
+#sidebar{
+    width:20%;
+    height:100%;
+    float:left;
+    padding-top: 20px;
+}
+#headerdiv{
+    width:100%;
+    text-align: center;
+    background-color: black;
+    font-size: 40px;
+    color: white;
+    padding-bottom: 2%;
+}
+
+
+.container{
+    text-align: center;
+}
+#bodydivwrapper{
+    float:left;
+    width:80%;
+}
+#mainbody{
+    min-height: 1000px;
+}
+#bodydiv{
+    padding-left:10%%;
+    margin-left: 50px;
+    padding-top: 20px;
+}
+#lbody{
+    float:left;
+    width:40%;
+    padding:0% 5%;
+}
+#rbody{
+    padding-top:13%;
+    padding-left:5%;
+    padding-left:2%;
+}
+.thumb{
+    height:50px
+    width:50px;
+}
+.thumb img{
+    height:50px;
+}
+
+.row div{
+    #padding:10px;
+}
+
+.yeardivs > div:first-of-type{
+    width:50%;
+    float:left;
+    padding-right: 5%;
+}
+.yeardivs > div:last-of-type{
+    width:50%;
+    float:left;
+    padding-left: 5%;
+}
+.radio-inline{
+    font-size: 12pt;
+}

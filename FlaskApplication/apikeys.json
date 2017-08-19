@@ -1,0 +1,10 @@
+{
+	"prediction":{
+		"api_key":"QXTq8mQ+HEppvP9VSp0lyjlmlOKWKvayLLpdG80sTj/7Cr4HdRJtfcwYDHoFAv5+URcAi448jUa6Q3GAK0hJnw==",
+		"url":"https://ussouthcentral.services.azureml.net/workspaces/43247f6706b64e68a8b7d22ff16a2a4f/services/2f84aea0a88e44eda6c9f8d4e4667b55/execute?api-version=2.0&details=true"
+	},
+	"clustering":{
+		"api_key":"",
+		"url":""
+	}
+}
